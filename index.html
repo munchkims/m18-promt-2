@@ -1,6 +1,6 @@
 <!-- index.html -->
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -18,59 +18,59 @@
         <div class="badge">KODLAND</div>
       </div>
 
-      <div class="tabs" role="tablist" aria-label="Выбор шаблона">
-        <button class="tab active" data-template="character" role="tab" aria-selected="true">Персонаж</button>
-        <button class="tab" data-template="background" role="tab" aria-selected="false">Фон</button>
+      <div class="tabs" role="tablist" aria-label="Selecting a template">
+        <button class="tab active" data-template="character" role="tab" aria-selected="true">Character</button>
+        <button class="tab" data-template="background" role="tab" aria-selected="false">Background</button>
       </div>
     </header>
 
     <main class="card">
       <div class="cardHead">
-        <h2 class="cardTitle">Кликайте по ярким словам 👇</h2>
+        <h2 class="cardTitle">Click on the colourful words 👇</h2>
       </div>
 
       <!-- PROMPT AREA -->
-      <div id="promptArea" class="promptArea" aria-label="Редактор промпта"></div>
+      <div id="promptArea" class="promptArea" aria-label="Prompt editor"></div>
 
       <div class="actions">
-        <button id="copyBtn" class="copyBtn" type="button">Скопировать промпт</button>
+        <button id="copyBtn" class="copyBtn" type="button">Copy the prompt</button>
         <div id="toast" class="toast" aria-live="polite" aria-atomic="true"></div>
       </div>
     </main>
 
     <!-- Popup chooser -->
     <div id="chooser" class="chooser" aria-hidden="true">
-      <div class="chooserCard" role="dialog" aria-modal="true" aria-label="Выбор варианта">
-        <div class="chooserTitle" id="chooserTitle">Выбери вариант</div>
+      <div class="chooserCard" role="dialog" aria-modal="true" aria-label="Selecting an option">
+        <div class="chooserTitle" id="chooserTitle">Select an option</div>
 
         <div id="chooserOptions" class="chooserOptions"></div>
 
         <div class="chooserCustom">
-          <label class="customLabel" for="customInput">Или напиши свой вариант:</label>
-          <input id="customInput" class="customInput" type="text" placeholder="Например: в очках, с шариком..." />
+          <label class="customLabel" for="customInput">Or write your own version:</label>
+          <input id="customInput" class="customInput" type="text" placeholder="For example: wearing glasses, with a ball..." />
           <div class="chooserBtns">
-            <button id="cancelBtn" class="btnGhost" type="button">Отмена</button>
-            <button id="applyBtn" class="btnAccent" type="button">Готово</button>
+            <button id="cancelBtn" class="btnGhost" type="button">Cancel</button>
+            <button id="applyBtn" class="btnAccent" type="button">Done</button>
           </div>
         </div>
       </div>
     </div>
         <div id="copyModal" class="copyModal" aria-hidden="true">
-  <div class="copyModalCard" role="dialog" aria-modal="true" aria-label="Скопируй промпт">
+  <div class="copyModalCard" role="dialog" aria-modal="true" aria-label="Copy the prompt">
     <div class="copyModalTop">
-      <div class="copyModalTitle">Скопируй промпт</div>
-      <button id="copyModalClose" class="copyModalClose" type="button" aria-label="Закрыть">✕</button>
+      <div class="copyModalTitle">Copy the prompt</div>
+      <button id="copyModalClose" class="copyModalClose" type="button" aria-label="Close">✕</button>
     </div>
 
     <div class="copyModalHint">
-      Нажми <b>Ctrl+C</b> (или <b>долгий тап</b> на телефоне), потом вставь в нейросеть.
+      Press <b>Ctrl+C</b> (or <b>long tap</b> on your phone), then paste it into the neural network.
     </div>
 
     <textarea id="copyTextarea" class="copyTextarea" readonly></textarea>
 
     <div class="copyModalBtns">
-      <button id="selectAllBtn" class="btnGhost" type="button">Выделить всё</button>
-      <button id="closeBtn2" class="btnAccent" type="button">Готово</button>
+      <button id="selectAllBtn" class="btnGhost" type="button">Select all</button>
+      <button id="closeBtn2" class="btnAccent" type="button">Done</button>
     </div>
   </div>
 </div>
