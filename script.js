@@ -23,41 +23,41 @@
   // Templates: prompt lines with embedded chips
   const CONFIG = {
     character: {
-      title: "Персонаж",
+      title: "Character",
       chips: {
-        hero: ["котик", "щенок", "зайчик", "медвежонок", "единорог", "робот"],
-        style: ["мультяшный", "акварель", "пластилин", "детская книга", "стикер", "3D-игрушка"],
-        mood: ["весёлое", "доброе", "смелое", "удивлённое", "сонное", "волшебное"],
-        colors: ["яркие", "пастельные", "тёплые", "холодные", "радужные", "чёрно-белые"],
-        extra: ["в шляпе", "с рюкзаком", "с шариком", "в очках", "с короной", "с крыльями"],
-        bg: ["прозрачный", "без фона", "небо", "лес", "комната", "город"]
+        hero: ["kitten", "puppy", "bunny", "bear cub", "unicorn", "robot"],
+        style: ["cartoon", "watercolour", "play‑dough", "children's book", "sticker", "3D toy"],
+        mood: ["happy", "kind", "brave", "surprised", "sleepy", "magical"],
+        colors: ["bright", "pastel", "warm", "cool", "rainbow", "black and white"],
+        extra: ["with a hat", "with a backpack", "with a balloon", "with glasses", "with a crown", "with wings"],
+        bg: ["transparent", "no background", "sky", "forest", "room", "city"]
       },
       lines: [
-        `Нарисуй {hero} как главного героя.`,
-        `Стиль: {style}. Настроение: {mood}.`,
-        `Цвета: {colors}.`,
-        `Дополнительно: {extra}.`,
-        `Фон вокруг героя: {bg}.`,
-        `Картинка для детской книжки: простые формы, чёткие линии, без текста, высокое качество.`
+        `Draw {hero} as the main character.`,
+        `Style: {style}. Mood: {mood}.`,
+        `Colours: {colors}.`,
+        `Extra: {extra}.`,
+        `Background around the main character: {bg}.`,
+        `Picture for a children's book: simple shapes, clear lines, no text, high quality.`
       ]
     },
     background: {
-      title: "Фон",
+      title: "Background",
       chips: {
-        place: ["лес", "город", "замок", "пляж", "космос", "школа"],
-        time: ["утро", "день", "вечер", "ночь", "закат", "рассвет"],
-        style: ["мультяшный", "акварель", "детская книга", "пастельный", "аппликация", "3D-мир"],
-        mood: ["волшебное", "спокойное", "праздничное", "таинственное", "радостное", "уютное"],
-        details: ["радуга", "звёзды", "фонарики", "снежинки", "цветы", "облака"],
-        camera: ["широкий кадр", "панорама", "вид сверху", "на уровне глаз", "далеко", "середина сцены"]
+        place: ["forest", "city", "castle", "beach", "space", "school"],
+        time: ["morning", "day", "evening", "night", "sunset", "sunrise"],
+        style: ["cartoon", "watercolour", "children's book", "pastel", "paper craft", "3D world"],
+        mood: ["magical", "calm", "festive", "mysterious", "joyful", "cosy"],
+        details: ["rainbow", "stars", "lanterns", "snowflakes", "flowers", "clouds"],
+        camera: ["wide shot", "panorama", "top view", "eye level", "far away", "mid-scene"]
       },
       lines: [
-        `Нарисуй фон для детской книжки: {place}.`,
-        `Время: {time}. Настроение: {mood}.`,
-        `Стиль: {style}.`,
-        `Добавь детали: {details}.`,
-        `Камера: {camera}.`,
-        `Фон без персонажей, чисто и красиво, мягкий свет, без текста, высокое качество.`
+        `Draw a background for a children's book: {place}.`,
+        `Time: {time}. Mood: {mood}.`,
+        `Style: {style}.`,
+        `Add details: {details}.`,
+        `Camera: {camera}.`,
+        `Background without characters, clean and pretty, soft light, no text, high quality.`
       ]
     }
   };
@@ -66,20 +66,20 @@
   let currentTemplate = "character";
   const state = {
     character: {
-      hero: "котик",
-      style: "мультяшный",
-      mood: "весёлое",
-      colors: "яркие",
-      extra: "в шляпе",
-      bg: "прозрачный",
+      hero: "kitten",
+      style: "cartoon",
+      mood: "happy",
+      colors: "bright",
+      extra: "with a hat",
+      bg: "transparent",
     },
     background: {
-      place: "лес",
-      time: "день",
-      style: "детская книга",
-      mood: "уютное",
-      details: "звёзды",
-      camera: "широкий кадр",
+      place: "forest",
+      time: "day",
+      style: "children's book",
+      mood: "cosy",
+      details: "stars",
+      camera: "wide shot",
     }
   };
 
@@ -105,7 +105,7 @@
 
   function chipHTML(key) {
     const value = state[currentTemplate][key] || "";
-    const display = value.trim() ? value : "нажми";
+    const display = value.trim() ? value : "press";
     const isEmpty = !value.trim();
     return `<span class="chip ${isEmpty ? "empty" : ""}" data-key="${escapeHtml(key)}">
       <span class="val">${escapeHtml(display)}</span>
@@ -146,7 +146,7 @@
     const options = (tpl.chips[activeKey] || []).slice();
     const current = (state[currentTemplate][activeKey] || "").trim();
 
-    chooserTitle.textContent = "Выбери вариант";
+    chooserTitle.textContent = "Select an option";
     chooserOptions.innerHTML = "";
     customInput.value = "";
 
@@ -227,7 +227,7 @@
 
   function openCopyModal(text) {
     if (!copyModal || !copyTextarea) {
-      showToast("Не удалось скопировать");
+      showToast("Could not copy");
       return;
     }
 
@@ -254,7 +254,7 @@
     const ok = fallbackCopyExecCommand(text);
 
     if (ok) {
-      showToast("Промпт скопирован");
+      showToast("Prompt copied");
       return;
     }
 
